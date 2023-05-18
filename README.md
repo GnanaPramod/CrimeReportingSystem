@@ -7,7 +7,7 @@ I and my teammate LOK AJAY worked combinely for this project
 To run this project first you have to install phpmyadmin in XAMPP and VSCODE.
 connect to phpmyadmin server to access database then connect all templates.
 # Tools Required
-HTML,PHP,CSS,JAVASCRIPT
+HTML,PHP,CSS,JAVASCRIPT,GIS
 # Contributor
 MOHANKUMAR LOK AJAY!
 # Screenshots
