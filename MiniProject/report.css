@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+body{
+    background-image:url( img2cs.PNG);
+    background-position:center;  
+    background-size: cover; 
+  }
+  
+/*The Whole Navigation Bar*/
+nav{
+  width: 100%;
+  height: 75px;
+  background-color: black;
+  line-height: 75px;
+  padding:0px 100px;
+  position: fixed;
+  z-index : 1;
+}
+
+nav .logo{
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+nav .logo p{
+  font-size: 21px;
+  float: left;
+  color: white;
+  text-transform: uppercase;
+}
+
+nav .logo .categories{
+  font-size: 2px;
+  float:right;
+}
+
+nav .logo .categories li{
+  display: inline-block;
+  list-style: none;
+}
+
+nav .logo .categories li a{
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+
+  padding: 10px;
+}
+
+/*Hover of the Inactive Menus*/
+nav .logo .categories li a:hover:not(.active) {
+  color:powderblue;
+}
+
+/*The currently active Menu*/
+nav .logo .categories li a.active {
+  color:powderblue;
+}
+
+.wrapper{
+  max-width: 500px;
+  width: 100%;
+  background: rgb(0,0,0,6);
+  opacity: 0.9;
+  margin: 20px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+  color: white;
+}
+
+.wrapper .title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #fec107;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper form label{
+  width: 200px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  width: 100%;
+  background:  #fec107;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* When moving the mouse over the submit button, add lighter color */
+input[type=submit]:hover {
+  background: #ffd658;
+}
+
+
+

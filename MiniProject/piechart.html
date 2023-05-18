@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pie Chart</title>
+    <meta charset="utf-8" />
+    <link href="https://www.highcharts.com/highslide/highslide.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/6/highcharts.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/6/highcharts-more.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/6/modules/heatmap.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/6/modules/exporting.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    
+<style>
+    body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
+                margin: 0; padding: 0; border: 0;
+            }
+    
+            body {
+                background: #909eab url(https://upcdn.io/FW25art7Ace4L17G55NVjFD);
+			 background-size:cover;                font-family: Helvetica, sans-serif; font-size: 18px; line-height: 24px;
+            }
+    
+            nav {
+                margin: 100px auto; 
+                text-align: center;
+            }
+    
+            nav ul ul {
+                display: none;
+            }
+    
+                nav ul li:hover > ul {
+                    display: block;
+                }
+    
+    
+                nav ul {
+			background: #efefef; 
+			background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+			background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
+			background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%); 
+			box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+			padding: 0 20px;
+			border-radius: 10px;  
+			border:rgba(0, 0, 0, 0.292) solid;
+			border-top: none;
+			border-width: 1px;
+			list-style: none;
+			position: relative;
+			display: inline-table;
+		}
+			nav ul:after {
+				content: ""; clear: both; display: block;
+			}
+
+			nav ul li {
+				float: left;
+			}
+				nav ul li:hover {
+					background: #4b545f;
+					background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+					background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+					background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+				}
+					nav ul li:hover a {
+						color: #fff;
+					}
+				
+				nav ul li a {
+					display: block; padding: 25px 40px;
+					color: #353535; text-decoration: none;
+				}
+                        
+                    
+                nav ul ul {
+                    background: #5f6975; border-radius: 0px; padding: 0;
+                    position: absolute; top: 100%;
+                }
+                    nav ul ul li {
+                        float: none; 
+                        border-top: 1px solid #6b727c;
+                        border-bottom: 1px solid #575f6a; position: relative;
+                    }
+                        nav ul ul li a {
+                            padding: 15px 40px;
+                            color: #fff;
+                        }	
+                            nav ul ul li a:hover {
+                                background: #4b545f;
+                            }
+                    
+                nav ul ul ul {
+                    position: absolute; left: 100%; top:0;
+                }
+                .button {
+  background-color:#808080;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.button:hover{
+     background:#363f49;
+}
+.select-dropdown,
+.select-dropdown * {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+.select-dropdown {
+  position: relative;
+  background-color: #E6E6E6;
+  border-radius: 4px;
+}
+.select-dropdown select {
+  font-size: 1rem;
+  font-weight: normal;
+  max-width: 100%;
+  padding: 8px 24px 8px 10px;
+  border: none;
+  background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  appearance: none;
+}
+.select-dropdown select:active, .select-dropdown select:focus {
+  outline: none;
+  box-shadow: none;
+}
+.select-dropdown:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 0;
+  height: 0;
+  margin-top: -2px;
+  border-top: 5px solid #aaa;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+    </style>
+</head>
+<body style="margin:0;padding:0">
+    <nav style = "margin-bottom :0;margin-top:0;z-index:10; position: relative;">
+      <div class="w3-top w3-hide-small">
+        <div class="w3-bar w3-xlarge w3-black w3-hover-opacity-off" id="myNavbar">
+          <a href="home.php" class="w3-bar-item w3-button">HOME</a>
+          <a href="about.php" class="w3-bar-item w3-button">ABOUT</a>
+          <a href="report.php" class="w3-bar-item w3-button">REPORT A CRIME</a>
+          <!-- <a href="review.php" class="w3-bar-item w3-button">VIEW COMPLAINTS</a> -->
+           <a href="NewLogin.php" class="w3-bar-item w3-button">LOGIN/REGISTER</a>
+           <a href="barchart.html" class="w3-bar-item w3-button">BARCHART</a>
+           <a href="Districts.html" class="w3-bar-item w3-button">MAP</a>
+           <!-- <a href="map.html" class="w3-bar-item w3-button">MAP</a> -->
+           <a href="piechart.html" class="w3-bar-item w3-button">PIECHART</a>
+           <a href="histogram.html"class ="w3-bar-item w3-button">HISTOGRAM</a>
+       
+          
+        </div>
+      </div>
+      </nav>
+    <div style="text-align: center;">
+
+	<h1 id="hh" style="margin-top:45px;"> Pie Chart </h1>
+</div>
+<br>
+    <form id="myForm" style="margin-left:17%">
+       <!-- <input type="file" id="csvFile" accept=".csv" />-->
+
+         Enter #States:
+        <input class="select-dropdown" type="number" id="topx" min=1 max=35 />
+        <input class="button" type="submit" value="Submit" />
+
+    </form>
+    <br />
+
+    <div id="container" style="width:850px;height:440px; margin-left:17%"></div>
+
+
+    <script>
+       var datas = [
+  {
+    State_name: "MADHYA PRADESH",
+    Crime: "217094"
+  },
+  {
+    State_name: "MAHARASHTRA",
+    Crime: "204902"
+  },
+  {
+    State_name: "UTTAR PRADESH",
+    Crime: "195135"
+  },
+  {
+    State_name: "TAMIL NADU",
+    Crime: "192879"
+  },
+  {
+    State_name: "ANDHRA PRADESH",
+    Crime: "189780"
+  },
+  {
+    State_name: "KERALA",
+    Crime: "172137"
+  },
+  {
+    State_name: "RAJASTHAN",
+    Crime: "165622"
+  },
+  {
+    State_name: "WEST BENGAL",
+    Crime: "143197"
+  },
+  {
+    State_name: "KARNATAKA",
+    Crime: "137600"
+  },
+  {
+    State_name: "BIHAR",
+    Crime: "135896"
+  },
+  {
+    State_name: "GUJARAT",
+    Crime: "123371"
+  },
+  {
+    State_name: "ASSAM",
+    Crime: "66714"
+  },
+  {
+    State_name: "ODISHA",
+    Crime: "61277"
+  },
+  {
+    State_name: "HARYANA",
+    Crime: "60741"
+  },
+  {
+    State_name: "CHHATTISGARH",
+    Crime: "57218"
+  },
+  {
+    State_name: "NCT of Delhi",
+    Crime: "53353"
+  },
+  {
+    State_name: "JHARKHAND",
+    Crime: "35838"
+  },
+  {
+    State_name: "PUNJAB",
+    Crime: "34883"
+  },
+  {
+    State_name: "JAMMU & KASHMIR",
+    Crime: "24504"
+  },
+  {
+    State_name: "HIMACHAL PRADESH",
+    Crime: "14312"
+  },
+  {
+    State_name: "UTTARAKHAND",
+    Crime: "8774"
+  },
+  {
+    State_name: "TRIPURA",
+    Crime: "5803"
+  },
+  {
+    State_name: "PUDUCHERRY",
+    Crime: "4362"
+  },
+  {
+    State_name: "CHANDIGARH",
+    Crime: "3542"
+  },
+  {
+    State_name: "GOA",
+    Crime: "3449"
+  },
+  {
+    State_name: "MANIPUR",
+    Crime: "3218"
+  },
+  {
+    State_name: "MEGHALAYA",
+    Crime: "2755"
+  },
+  {
+    State_name: "ARUNACHAL PRADESH",
+    Crime: "2286"
+  },
+  {
+    State_name: "MIZORAM",
+    Crime: "1821"
+  },
+  {
+    State_name: "NAGALAND",
+    Crime: "1083"
+  },
+  {
+    State_name: "A & N ISLANDS",
+    Crime: "793"
+  },
+  {
+    State_name: "SIKKIM",
+    Crime: "596"
+  },
+  {
+    State_name: "D & N HAVELI",
+    Crime: "372"
+  },
+  {
+    State_name: "DAMAN & DIU",
+    Crime: "224"
+  },
+  {
+    State_name: "LAKSHADWEEP",
+    Crime: "44"
+  }
+];
+    </script>
+
+
+    <script>
+        Highcharts.setOptions({ "global": {}, "lang": {} });
+        var option = { "chart": { "renderTo": "container", "width": 850, "height": 400, "plotBackgroundColor": null, "plotBorderWidth": null, "plotShadow": false }, "colors": {}, "credits": { "enabled": false }, "drilldown": {}, "exporting": {}, "labels": {}, "legend": {}, "loading": {}, "navigation": {}, "pane": {}, "plotOptions": {}, "series": {}, "subtitle": {}, "title": { "text": "Crime Analysis Evaluation" }, "tooltip": { "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>" }, "xAxis": {}, "yAxis": {} };
+        var chart = new Highcharts.Chart(option);
+        var data = [{ "data": [], "type": "pie", "showInLegend": true, "dataLabels": { "enabled": false, "format": "<b>{point.name}</b>: {point.percentage:.1f} %", "style": { "color": (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black' } }, "name": "Crime", "allowPointSelect": true, "cursor": "pointer" }];
+
+
+        var sum = 0;
+        if (topx.value == "") {
+            topx.value = 10;
+        }
+        for (var i = topx.value; i < datas.length - 1; i++) {
+            sum += Number(datas[i].Crime);
+        }
+
+        for (var j = 0; j < topx.value; j++) {
+
+            data[0].data.push({ "name": datas[j].State_name, "y": Number(datas[j].Crime) })
+
+        }
+        data[0].data.push({ "name": "Others", "y": sum })
+
+
+        var dataLen = data.length;
+        for (var ix = 0; ix < dataLen; ix++) {
+            chart.addSeries(data[ix]);
+        }
+
+        myForm.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+            Highcharts.setOptions({ "global": {}, "lang": {} });
+            var option = { "chart": { "renderTo": "container", "width": 850, "height": 550, "plotBackgroundColor": null, "plotBorderWidth": null, "plotShadow": false }, "colors": {}, "credits": { "enabled": false }, "drilldown": {}, "exporting": {}, "labels": {}, "legend": {}, "loading": {}, "navigation": {}, "pane": {}, "plotOptions": {}, "series": {}, "subtitle": {}, "title": { "text": "Crime Analysis Evaluation" }, "tooltip": { "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>" }, "xAxis": {}, "yAxis": {} };
+            var chart = new Highcharts.Chart(option);
+            var data = [{ "data": [], "type": "pie", "showInLegend": true, "dataLabels": { "enabled": false, "format": "<b>{point.name}</b>: {point.percentage:.1f} %", "style": { "color": (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black' } }, "name": "Crime", "allowPointSelect": true, "cursor": "pointer" }];
+
+
+            var sum = 0;
+            if (topx.value == "") {
+                topx.value = 10;
+            }
+            for (var i = topx.value; i < datas.length - 1; i++) {
+                sum += Number(datas[i].Crime);
+            }
+
+            for (var j = 0; j < topx.value; j++) {
+
+                data[0].data.push({ "name": datas[j].State_name, "y": Number(datas[j].Crime) })
+
+            }
+            data[0].data.push({ "name": "Others", "y": sum })
+
+
+            var dataLen = data.length;
+            for (var ix = 0; ix < dataLen; ix++) {
+                chart.addSeries(data[ix]);
+            }
+        });
+    </script>
+</body>
+</html>
