@@ -11,7 +11,7 @@ HTML,PHP,CSS,JAVASCRIPT,GIS
 # Contributor
 MOHANKUMAR LOK AJAY!
 # Screenshots
-[about png](https://github.com/GnanaPramod/CrimeReportingSystem/assets/128074030/ae4e8172-057b-4f8a-8eac-5fc94d676dcd)
+![about png](https://github.com/GnanaPramod/CrimeReportingSystem/assets/128074030/ae4e8172-057b-4f8a-8eac-5fc94d676dcd)
 ![complaints png](https://github.com/GnanaPramod/CrimeReportingSystem/assets/128074030/4c3c53da-a69e-4048-accb-a7cc99486bd8)
 ![histogram png](https://github.com/GnanaPramod/CrimeReportingSystem/assets/128074030/58641f82-ba2e-479b-bf52-61a0bdc2cb2d)
 ![login png](https://github.com/GnanaPramod/CrimeReportingSystem/assets/128074030/fc62f478-a439-4a1c-8311-874a4f34facc)
